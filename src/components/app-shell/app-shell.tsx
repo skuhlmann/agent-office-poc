@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Building2, RotateCcw, UserRound } from "lucide-react";
+import { BookOpenText, Building2, RotateCcw, UserRound } from "lucide-react";
 import { currentUser } from "@/data/users";
 import { roles } from "@/data/roles";
 import { useDemo } from "@/providers/demo-state-provider";
@@ -40,6 +40,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <Button asChild size="sm" variant={pathname === "/office" ? "outline" : "ghost"}>
               <Link href="/office">My Office</Link>
             </Button>
+            <Button asChild size="sm" variant={pathname === "/lobby" ? "outline" : "ghost"}>
+              <Link href="/lobby">The Lobby</Link>
+            </Button>
           </nav>
         </div>
 
@@ -51,6 +54,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             className="hidden text-muted-foreground md:inline-flex"
           >
             <RotateCcw /> Reset demo
+          </Button>
+          <Button
+            asChild
+            variant={pathname === "/lobby" ? "outline" : "ghost"}
+            size="icon"
+            className="lg:hidden"
+          >
+            <Link href="/lobby" aria-label="Open The Lobby">
+              <BookOpenText />
+            </Link>
           </Button>
           <Link
             href="/office"
